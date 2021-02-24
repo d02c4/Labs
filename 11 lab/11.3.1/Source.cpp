@@ -12,12 +12,12 @@ struct Stack
 
 void InitSize(int *size)
 {
-	cout << "Ââåäèòå ðàçìåð ñòåêà: \t"; 
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ€Ð°Ð·Ð¼ÐµÑ€ ÑÑ‚ÐµÐºÐ°: \t"; 
 	cin >> *size;
 	while (*size < 1)
 	{
-		cout << "Ââåäåí íåêîððåêòíûé ðàçìåð ñòåêà!" << endl;
-		cout << "Ââåäèòå ðàçìåð ñòåêà: \t";
+		cout << "Ð’Ð²ÐµÐ´ÐµÐ½ Ð½ÐµÐºÐ¾Ñ€Ñ€ÐµÐºÑ‚Ð½Ñ‹Ð¹ Ñ€Ð°Ð·Ð¼ÐµÑ€ ÑÑ‚ÐµÐºÐ°!" << endl;
+		cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ€Ð°Ð·Ð¼ÐµÑ€ ÑÑ‚ÐµÐºÐ°: \t";
 		cin >> *size;
 	}
 }
@@ -26,14 +26,14 @@ Stack* InitSTACK(int size)
 {
 	Stack* top;
 	top = new Stack;
-	cout << "Ââåäèòå 1 ýëåìåíò ñòåêà:\t";
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ 1 ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚ ÑÑ‚ÐµÐºÐ°:\t";
 	cin >> top->inf;
 	top->prev = NULL;
 	
 	for (int  i = 2; i <= size; i++)
 	{
 		Stack* h = new Stack;
-		cout << "Ââåäèòå "<< i << " ýëåìåíò ñòåêà:\t";
+		cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ "<< i << " ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚ ÑÑ‚ÐµÐºÐ°:\t";
 		cin >> h->inf;
 		h->prev = top;
 		top = h;
@@ -45,7 +45,7 @@ void PrintStack(Stack* top)
 {
 	if (top == NULL)
 	{
-		cout << "Ñòåê ïóñò!" << endl;
+		cout << "Ð¡Ñ‚ÐµÐº Ð¿ÑƒÑÑ‚!" << endl;
 	}
 	else
 	{
