@@ -15,13 +15,13 @@ void countRC(int* rows, int* cols)
 {
 	while (*rows <= 0)
 	{
-		cout << "Ââåäèòå êîëè÷åñòâî ñòðîê: ";
+		cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ ÑÑ‚Ñ€Ð¾Ðº: ";
 		cin >> *rows;
 	}
 
 	while (*cols <= 0)
 	{
-		cout << "Ââåäèòå êîëè÷åñòâî ñòîëáöîâ: ";
+		cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ ÑÑ‚Ð¾Ð»Ð±Ñ†Ð¾Ð²: ";
 		cin >> *cols;
 	}
 }
@@ -175,7 +175,7 @@ int main()
 	int cols2 = cols - countCM;
 
 	if (rows2 == 0 || cols == 0) {
-		cout << endl << "Â ìàññèâå íå îñòàëîñü ýëåìåíòîâ!" << endl;
+		cout << endl << "Ð’ Ð¼Ð°ÑÑÐ¸Ð²Ðµ Ð½Ðµ Ð¾ÑÑ‚Ð°Ð»Ð¾ÑÑŒ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð²!" << endl;
 		return 0;
 	}
 	int** arr2 = new int* [rows2];
