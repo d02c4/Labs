@@ -6,12 +6,12 @@ using namespace std;
 
 void InitSize(int* size)
 {
-	cout << "Ââåäèòå ðàçìåð ñòåêà: \t";
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ€Ð°Ð·Ð¼ÐµÑ€ ÑÑ‚ÐµÐºÐ°: \t";
 	cin >> *size;
 	while (*size < 1)
 	{
-		cout << "Ââåäåí íåêîððåêòíûé ðàçìåð ñòåêà!" << endl;
-		cout << "Ââåäèòå ðàçìåð ñòåêà: \t";
+		cout << "Ð’Ð²ÐµÐ´ÐµÐ½ Ð½ÐµÐºÐ¾Ñ€Ñ€ÐµÐºÑ‚Ð½Ñ‹Ð¹ Ñ€Ð°Ð·Ð¼ÐµÑ€ ÑÑ‚ÐµÐºÐ°!" << endl;
+		cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ€Ð°Ð·Ð¼ÐµÑ€ ÑÑ‚ÐµÐºÐ°: \t";
 		cin >> *size;
 	}
 }
@@ -21,7 +21,7 @@ void StackInit(stack<double>& st, int size)
 	double a;
 	for (int i = 0; i < size; i++)
 	{
-		cout << "Ââåäèòå " << i + 1 << " ýëåìåíò ñòåêà:\t";
+		cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ " << i + 1 << " ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚ ÑÑ‚ÐµÐºÐ°:\t";
 		cin >> a;
 		st.push(a);
 	}
@@ -56,7 +56,7 @@ void PrintStack(stack<double> st, int size)
 	cout << endl << endl;
 	if (size == 0)
 	{
-		cout << "Ñòåê ïóñò!\n";
+		cout << "Ð¡Ñ‚ÐµÐº Ð¿ÑƒÑÑ‚!\n";
 	}
 	else
 	{
