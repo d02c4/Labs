@@ -11,13 +11,13 @@ struct Queue
 
 void EnterSize(int* size)
 {
-	cout << "Ââåäèòå ðàçìåð î÷åðåäè: \t";
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ€Ð°Ð·Ð¼ÐµÑ€ Ð¾Ñ‡ÐµÑ€ÐµÐ´Ð¸: \t";
 	cin >> (*size);
 
 	while ((*size) < 1)
 	{
-		cout << "Ââåäåí íåïðàâèëüíûé ðàçìåð î÷åðåäè!\n";
-		cout << "Ââåäèòå ðàçìåð î÷åðåäè: \t";
+		cout << "Ð’Ð²ÐµÐ´ÐµÐ½ Ð½ÐµÐ¿Ñ€Ð°Ð²Ð¸Ð»ÑŒÐ½Ñ‹Ð¹ Ñ€Ð°Ð·Ð¼ÐµÑ€ Ð¾Ñ‡ÐµÑ€ÐµÐ´Ð¸!\n";
+		cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ€Ð°Ð·Ð¼ÐµÑ€ Ð¾Ñ‡ÐµÑ€ÐµÐ´Ð¸: \t";
 		cin >> (*size);
 	}
 }
@@ -33,12 +33,12 @@ Queue* InitQueue(Queue* &ptrFirst, int size)
 		Queue* ptr = new Queue;
 		ptrFirst = ptr;
 		ptr->next = NULL;
-		cout << "Ââåäèòå 1 ýëåìåíò î÷åðåäè:\t";
+		cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ 1 ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚ Ð¾Ñ‡ÐµÑ€ÐµÐ´Ð¸:\t";
 		cin >> ptr->inf;
 		for (int i = 2; i <= size; i++)
 		{
 			Queue* h = new Queue;
-			cout << "Ââåäèòå " << i << " ýëåìåíò î÷åðåäè:\t";
+			cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ " << i << " ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚ Ð¾Ñ‡ÐµÑ€ÐµÐ´Ð¸:\t";
 			cin >> h->inf;
 			h->next = NULL;
 			ptr->next = h;
