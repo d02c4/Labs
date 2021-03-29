@@ -12,6 +12,7 @@ double InitConst()
 
 void main()
 {
+	system("chcp 1251>nul");
 	setlocale(LC_ALL, "Ru");
 	Pair a;//конструктор без параметров 
 	Pair b; //конструктор без параметров 

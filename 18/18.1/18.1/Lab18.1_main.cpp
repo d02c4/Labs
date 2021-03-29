@@ -11,6 +11,7 @@ fraction make_fraction(double F, int S)
 
 int main()
 {
+	system("chcp 1251>nul");
 	setlocale(LC_ALL, "Ru");
 	//определение переменных А и В 
 	fraction A;

@@ -21,6 +21,7 @@ PERSON f2()
 
 void main()
 {
+	system("chcp 1251>nul");
 	setlocale(LC_ALL, "Ru");
 
 	//работа с классом PERSON 
