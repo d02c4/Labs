@@ -1,4 +1,0 @@
-﻿  18.3_main.cpp
-C:\Users\d02c4\source\repos\18.3\18.3\Pair.h(44,10): warning C4244: return: преобразование "double" в "int", возможна потеря данных
-C:\Users\d02c4\source\repos\18.3\18.3\18.3_main.cpp(14,1): warning C4326: возвращаемый тип "main" должен быть "int", а не "void"
-  18.3.vcxproj -> C:\Users\d02c4\source\repos\18.3\Debug\18.3.exe
