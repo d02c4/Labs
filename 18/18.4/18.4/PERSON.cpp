@@ -1,29 +1,29 @@
 #include "PERSON.h"
-//конструктор без параметров 
+//РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Р±РµР· РїР°СЂР°РјРµС‚СЂРѕРІ 
 PERSON::PERSON(void)
 {
 	name = ""; 
 	age = 0; 
 }
-//деструктор 
+//РґРµСЃС‚СЂСѓРєС‚РѕСЂ 
 PERSON::~PERSON(void)
 {
 
 }
 
-//конструктор с параметрами 
+//РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё 
 PERSON::PERSON(string M,int C)
 {
 	name = M; 
 	age = C; 
 }
-//конструктор копирования 
+//РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ 
 PERSON::PERSON(const PERSON& person)
 {
 	name = person.name; 
 	age = person.age; 
 }
-//модификаторы
+//РјРѕРґРёС„РёРєР°С‚РѕСЂС‹
 void PERSON::Set_age(int C)
 {
 	age = C;
@@ -33,7 +33,7 @@ void PERSON::Set_name(string M)
 	name = M;
 }
 
-//перегрузка операции присваивания 
+//РїРµСЂРµРіСЂСѓР·РєР° РѕРїРµСЂР°С†РёРё РїСЂРёСЃРІР°РёРІР°РЅРёСЏ 
 PERSON& PERSON::operator=(const PERSON&c)
 {
 	if (&c == this)return *this; 
@@ -41,7 +41,7 @@ PERSON& PERSON::operator=(const PERSON&c)
 	age = c.age;
 	return *this;
 }
-//глобальная функция для ввода 
+//РіР»РѕР±Р°Р»СЊРЅР°СЏ С„СѓРЅРєС†РёСЏ РґР»СЏ РІРІРѕРґР° 
 istream& operator>>(istream&in,PERSON&c)
 {
 	cout << "\nName:"; 
@@ -50,14 +50,14 @@ istream& operator>>(istream&in,PERSON&c)
 	in >> c.age;
 	while (c.age < 14 || c.age > 40)
 	{
-		cout << "\nНе уверен что в таком возрасте учатся в университете\n";
+		cout << "\nРќРµ СѓРІРµСЂРµРЅ С‡С‚Рѕ РІ С‚Р°РєРѕРј РІРѕР·СЂР°СЃС‚Рµ СѓС‡Р°С‚СЃСЏ РІ СѓРЅРёРІРµСЂСЃРёС‚РµС‚Рµ\n";
 		cout << "\nAge:";
 		in >> c.age;
 	}
 	return in;
 }
 
-//глобальная функция для вывода
+//РіР»РѕР±Р°Р»СЊРЅР°СЏ С„СѓРЅРєС†РёСЏ РґР»СЏ РІС‹РІРѕРґР°
 ostream& operator<<(ostream& out, const PERSON& c)
 {
 	out << "\nName : " << c.name; 
