@@ -1,0 +1,3 @@
+﻿  18.4.cpp
+C:\Users\d02c4\source\repos\18.4\18.4\18.4.cpp(23,1): warning C4326: возвращаемый тип "main" должен быть "int", а не "void"
+  18.4.vcxproj -> C:\Users\d02c4\source\repos\18.4\Debug\18.4.exe

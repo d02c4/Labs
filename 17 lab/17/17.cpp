@@ -108,6 +108,7 @@ void PrintHashTable(vector<HashTab> HASH)
 		if (HASH[i].code != NULL)
 		{
 			cout << count << " элемент хеш-таблицы находится под индексом: " << i << endl;
+			cout << "хеш:\t " << HASH[i].code % 256 << endl;
 			cout << HASH[i].data << endl << endl;
 			count++;
 		}
@@ -132,7 +133,7 @@ int Hashcode(string str)
 }
 void FillHashTable(DATA* human, int size, vector<HashTab>& HASH)
 {
-	vector <HashTab> Hash2(512);
+	vector <HashTab> Hash2(size * 3);
 	int N = 256;
 
 	for (int i = 0; i < size; i++)
@@ -142,25 +143,25 @@ void FillHashTable(DATA* human, int size, vector<HashTab>& HASH)
 		human[i].code = H;
 		human[i].data = str + "\n" + to_string(human[i].day) + "." + to_string(human[i].month) + "." + to_string(human[i].year) + "\n" + human[i].City + ", " + human[i].Street + ", " + to_string(human[i].Home) + "\n";
 
-		if (Hash2[human[i].code % 256].code == NULL)
+		if (Hash2[human[i].code % N].code == NULL)
 		{
 
-			Hash2[human[i].code % 256].code = human[i].code;
-			Hash2[human[i].code % 256].data = human[i].data;
-			Hash2[human[i].code % 256].key = human[i].code % 256;
-			Hash2[human[i].code % 256].f = true;
+			Hash2[human[i].code % N].code = human[i].code;
+			Hash2[human[i].code % N].data = human[i].data;
+			Hash2[human[i].code % N].key = human[i].code % N;
+			Hash2[human[i].code % N].f = true;
 		}
-		else if (Hash2[human[i].code % 256].code != NULL)
+		else if (Hash2[human[i].code % N].code != NULL)
 		{
-			int a = human[i].code % 256;
+			int a = human[i].code % N;
 			while (Hash2[a].code != NULL)
 			{
 				a++;
 			}
 
-			Hash2[human[i].code % 256].code = human[i].code;
-			Hash2[human[i].code % 256].data = human[i].data;
-			Hash2[human[i].code % 256].f = true;
+			Hash2[human[i].code % N].code = human[i].code;
+			Hash2[human[i].code % N].data = human[i].data;
+			Hash2[human[i].code % N].f = true;
 		}
 	}
 	HASH = Hash2;

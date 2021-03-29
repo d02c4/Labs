@@ -1,0 +1,4 @@
+﻿  Source.cpp
+C:\Users\d02c4\source\repos\12\12\Source.cpp(250,12): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\d02c4\source\repos\12\12\Source.cpp(492,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  12.vcxproj -> C:\Users\d02c4\source\repos\12\Debug\12.exe
