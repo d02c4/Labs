@@ -4,21 +4,21 @@
 using namespace std; 
 class PERSON
 {
-//êîíñòðóêòîð áåç ïàðàìåòðîâ 
+//ÐºÐ¾Ð½ÑÑ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€ Ð±ÐµÐ· Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€Ð¾Ð² 
 public:
 	PERSON(void); 
 public:
-	//äåñòðóêòîð
+	//Ð´ÐµÑÑ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€
 
 	virtual ~PERSON(void);
 
-	//êîíñòðêòîð ñ ïàðàìåòðàìè 
+	//ÐºÐ¾Ð½ÑÑ‚Ñ€ÐºÑ‚Ð¾Ñ€ Ñ Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€Ð°Ð¼Ð¸ 
 	PERSON(string,int);
 
-	//êîíñòðóêòîð êîïèðîâàíèÿ 
+	//ÐºÐ¾Ð½ÑÑ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€ ÐºÐ¾Ð¿Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ñ 
 	PERSON(const PERSON&);
 
-	//Ãåòòåðû
+	//Ð“ÐµÑ‚Ñ‚ÐµÑ€Ñ‹
 	string Get_name() 
 	{ 
 		return name; 
@@ -28,18 +28,18 @@ public:
 		return age; 
 	}
 
-	//Ñåòòåðû
+	//Ð¡ÐµÑ‚Ñ‚ÐµÑ€Ñ‹
 	void Set_name(string); 
 	void Set_age(int); 
 
-	//ïåðåãðóçêà îïåðàöèè ïðèñâàèâàíèÿ 
+	//Ð¿ÐµÑ€ÐµÐ³Ñ€ÑƒÐ·ÐºÐ° Ð¾Ð¿ÐµÑ€Ð°Ñ†Ð¸Ð¸ Ð¿Ñ€Ð¸ÑÐ²Ð°Ð¸Ð²Ð°Ð½Ð¸Ñ 
 	PERSON& operator=(const PERSON&);
 
-	//ãëîáàëüíûå îïåðàòîðû-ôóíêöèè ââîäà-âûâîäà
+	//Ð³Ð»Ð¾Ð±Ð°Ð»ÑŒÐ½Ñ‹Ðµ Ð¾Ð¿ÐµÑ€Ð°Ñ‚Ð¾Ñ€Ñ‹-Ñ„ÑƒÐ½ÐºÑ†Ð¸Ð¸ Ð²Ð²Ð¾Ð´Ð°-Ð²Ñ‹Ð²Ð¾Ð´Ð°
 	friend istream& operator>>(istream& in, PERSON& c); 
 	friend ostream& operator<<(ostream& out, const PERSON& c);
 
-	//àòðèáóòû 
+	//Ð°Ñ‚Ñ€Ð¸Ð±ÑƒÑ‚Ñ‹ 
 protected:
 	string name; 
 	int age;
