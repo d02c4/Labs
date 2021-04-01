@@ -1,74 +1,51 @@
-#include "PERSON.h"
-//конструктор без параметров 
-PERSON::PERSON()
-{
-	name = "";
-	age = 0;
-}
-//деструктор 
-PERSON::~PERSON()
+#pragma once 
+#include "Object.h"
+#include <string> 
+#include <iostream> 
+using namespace std;
+class PERSON: public Object
 {
 
-}
+public: 
+	//РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Р±РµР· РїР°СЂР°РјРµС‚СЂРѕРІ 
+	PERSON();
 
-//конструктор с параметрами 
-PERSON::PERSON(string M, int C)
-{
-	name = M;
-	age = C;
-}
-//конструктор копирования 
-PERSON::PERSON(const PERSON& person)
-{
-	name = person.name;
-	age = person.age;
-}
-//модификаторы
-void PERSON::Set_age(int C)
-{
-	age = C;
-}
-void PERSON::Set_name(string M)
-{
-	name = M;
-}
+	//РґРµСЃС‚СЂСѓРєС‚РѕСЂ
 
-//перегрузка операции присваивания 
-PERSON& PERSON::operator=(const PERSON& c)
-{
-	if (&c == this)return *this;
-	name = c.name;
-	age = c.age;
-	return *this;
-}
-//глобальная функция для ввода 
-istream& operator>>(istream& in, PERSON& c)
-{
-	cout << "\nName:";
-	in >> c.name;
-	cout << "\nAge:";
-	in >> c.age;
-	while (c.age < 14 || c.age > 40)
+	virtual ~PERSON();
+
+	void Show();// С„СѓРЅРєС†РёСЏ РґР»СЏ РїСЂРѕСЃРјРѕС‚СЂР° Р°С‚СЂРёР±СѓС‚РѕРІ РєР»Р°СЃСЃР° СЃ РїРѕРјРѕС‰СЊСЋ СѓРєР°Р·Р°С‚РµР»СЏ
+
+
+	//РєРѕРЅСЃС‚СЂРєС‚РѕСЂ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё 
+	PERSON(string, int);
+
+	//РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ 
+	PERSON(const PERSON&);
+
+	//Р“РµС‚С‚РµСЂС‹
+	string Get_name()
 	{
-		cout << "\nНе уверен что в таком возрасте учатся в университете\n";
-		cout << "\nAge:";
-		in >> c.age;
+		return name;
 	}
-	return in;
-}
+	int Get_age()
+	{
+		return age;
+	}
 
-//глобальная функция для вывода
-ostream& operator<<(ostream& out, const PERSON& c)
-{
-	out << "\nName : " << c.name;
-	out << "\nAge : " << c.age;
-	return out;
-}
+	//РЎРµС‚С‚РµСЂС‹
+	void Set_name(string);
+	void Set_age(int);
 
+	//РїРµСЂРµРіСЂСѓР·РєР° РѕРїРµСЂР°С†РёРё РїСЂРёСЃРІР°РёРІР°РЅРёСЏ 
+	PERSON& operator=(const PERSON&);
 
-void PERSON::Show()
-{
-	cout << "\nName : " << this->name << endl;
-	cout << "\nAge : " << this->age << endl;
-	cout << "\n";
-}
+	//РіР»РѕР±Р°Р»СЊРЅС‹Рµ РѕРїРµСЂР°С‚РѕСЂС‹-С„СѓРЅРєС†РёРё РІРІРѕРґР°-РІС‹РІРѕРґР°
+	friend istream& operator>>(istream& in, PERSON& c);
+	friend ostream& operator<<(ostream& out, const PERSON& c);
+
+	//Р°С‚СЂРёР±СѓС‚С‹ 
+protected:
+	string name;
+	int age;
+};
