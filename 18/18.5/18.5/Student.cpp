@@ -1,115 +1,32 @@
-#include "Student.h"
+#pragma once 
+#include "PERSON.h"
+#include "Object.h"
 
-//конструктор без параметров 
-STUDENT::STUDENT() :PERSON()
+//РєР»Р°СЃСЃ STUDENT РЅР°СЃР»РµРґСѓРµС‚СЃСЏ РѕС‚ РєР»Р°СЃСЃР° PERSON 
+class STUDENT :public PERSON
 {
-	mark = 2;
-}
+public:
+	STUDENT();//РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Р±РµР· РїР°СЂР°РјРµС‚СЂРѕРІ 
 
-//дестрктор 
-STUDENT::~STUDENT()
-{
+	~STUDENT();//РґРµСЃС‚СЂСѓРєС‚РѕСЂ 
 
-}
+	void Show();// С„СѓРЅРєС†РёСЏ РґР»СЏ РїСЂРѕСЃРјРѕС‚СЂР° Р°С‚СЂРёР±СѓС‚РѕРІ РєР»Р°СЃСЃР° СЃ РїРѕРјРѕС‰СЊСЋ СѓРєР°Р·Р°С‚РµР»СЏ
 
-//конструктор с параметрами
-STUDENT::STUDENT(string M, int C, int mark, string subject) :PERSON(M, C)
-{
-	this->name = M;
-	this->age = C;
-	this->mark = mark;
-	this->subject = subject;
-}
+	STUDENT(string, int, int, string);//РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё 
+	STUDENT(const STUDENT&);//РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
 
-//конструктор копирования 
-STUDENT::STUDENT(const STUDENT& other)
-{
-	this->name = other.name;
-	this->age = other.age;
-	this->mark = other.mark;
-	this->subject = other.subject;
-}
+	string Get_subject() { return subject; }//РјРѕРґРёС„РёРєР°С‚РѕСЂ 
+	void Set_subject(string);//СЃРµР»РµРєС‚РѕСЂ
 
-//модификатор
-void STUDENT::Set_mark(int)
-{
-	this->mark = mark;
-}
+	int Get_mark() { return mark; }//РјРѕРґРёС„РёРєР°С‚РѕСЂ 
+	void Set_mark(int);//СЃРµР»РµРєС‚РѕСЂ
 
-void STUDENT::Set_subject(string)
-{
-	this->subject = subject;
-}
+	STUDENT& operator=(const STUDENT&);//РѕРїРµСЂР°С†РёСЏ РїСЂРёСЃРІР°РёРІР°РЅРёСЏ
 
-//оперция присваивания
-STUDENT& STUDENT::operator=(const STUDENT& l)
-{
-	if (&l == this)return *this;
-	name = l.name;
-	age = l.age;
-	mark = l.mark;
-	subject = l.subject;
-	return *this;
-}
-
-//операция ввода
-istream& operator>>(istream& in, STUDENT& l)
-{
-	cout << "\nName:";
-	in >> l.name;
-
-	cout << "\nAge:";
-	in >> l.age;
-	while (l.age < 14 || l.age > 40)
-	{
-		cout << "\nНе уверен что в таком возрасте учатся в университете\n";
-		cout << "\nAge:";
-		in >> l.age;
-	}
-
-	cout << "\nsubject:";
-	in >> l.subject;
-
-	cout << "\nmark:";
-	in >> l.mark;
-	while (l.mark < 2 || l.mark > 5)
-	{
-		cout << "\nВведена некорректная оценка!\n";
-		cout << "\nMark:";
-		in >> l.mark;
-	}
-	return in;
-}
-
-//операция вывода
-ostream& operator<<(ostream& out, const STUDENT& l)
-{
-	out << "\nName : " << l.name;
-	out << "\nAge : " << l.age;
-	out << "\nmark : " << l.mark;
-	out << "\nsubject:" << l.subject;
-	out << "\n";
-	return out;
-}
-
-void STUDENT::Check_Mark(const STUDENT& stud)
-{
-	switch (stud.mark)
-	{
-	case 2: cout << "\nОценка  студента " << stud.name << " по предмету " << stud.subject << " неудовлетворительна!\n"; break;
-	case 3:
-	case 4:
-	case 5: cout << "\nОценка  студента " << stud.name << " по предмету " << stud.subject << " удовлетворительна!\n"; break;
-	default:
-		break;
-	}
-}
-
-void STUDENT::Show()
-{
-	cout << "\nName : " << name << endl;
-	cout << "\nAge : " << age << endl;
-	cout << "\nMark : " << mark << endl;
-	cout << "\nSubject : " << subject << endl;
-	Check_Mark(*this);
-}
+	void Check_Mark(const STUDENT&);
+	friend istream& operator>>(istream& in, STUDENT& l);//РѕРїРµСЂР°С†РёСЏ РІРІРѕРґР°
+	friend ostream& operator<<(ostream& out, const STUDENT& l); //РѕРїРµСЂР°С†РёСЏ РІС‹РІРѕРґР° 
+protected:
+	int mark;//РїРѕР»Рµ РѕС†РµРЅРєРё СЃС‚СѓРґРµРЅС‚Р°
+	string subject;//РїРѕР»Рµ РїСЂРµРґРјРµС‚Р°
+};
