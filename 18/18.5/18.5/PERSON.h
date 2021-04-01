@@ -1,0 +1,51 @@
+#pragma once 
+#include "Object.h"
+#include <string> 
+#include <iostream> 
+using namespace std;
+class PERSON: public Object
+{
+
+public: 
+	//конструктор без параметров 
+	PERSON();
+
+	//деструктор
+
+	virtual ~PERSON();
+
+	void Show();// функция для просмотра атрибутов класса с помощью указателя
+
+
+	//констрктор с параметрами 
+	PERSON(string, int);
+
+	//конструктор копирования 
+	PERSON(const PERSON&);
+
+	//Геттеры
+	string Get_name()
+	{
+		return name;
+	}
+	int Get_age()
+	{
+		return age;
+	}
+
+	//Сеттеры
+	void Set_name(string);
+	void Set_age(int);
+
+	//перегрузка операции присваивания 
+	PERSON& operator=(const PERSON&);
+
+	//глобальные операторы-функции ввода-вывода
+	friend istream& operator>>(istream& in, PERSON& c);
+	friend ostream& operator<<(ostream& out, const PERSON& c);
+
+	//атрибуты 
+protected:
+	string name;
+	int age;
+};
