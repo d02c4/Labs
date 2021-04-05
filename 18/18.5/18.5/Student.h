@@ -2,31 +2,31 @@
 #include "PERSON.h"
 #include "Object.h"
 
-//класс STUDENT наследуется от класса PERSON 
+//РєР»Р°СЃСЃ STUDENT РЅР°СЃР»РµРґСѓРµС‚СЃСЏ РѕС‚ РєР»Р°СЃСЃР° PERSON 
 class STUDENT :public PERSON
 {
 public:
-	STUDENT();//конструктор без параметров 
+	STUDENT();//РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Р±РµР· РїР°СЂР°РјРµС‚СЂРѕРІ 
 
-	~STUDENT();//деструктор 
+	~STUDENT();//РґРµСЃС‚СЂСѓРєС‚РѕСЂ 
 
-	void Show();// функция для просмотра атрибутов класса с помощью указателя
+	void Show();// С„СѓРЅРєС†РёСЏ РґР»СЏ РїСЂРѕСЃРјРѕС‚СЂР° Р°С‚СЂРёР±СѓС‚РѕРІ РєР»Р°СЃСЃР° СЃ РїРѕРјРѕС‰СЊСЋ СѓРєР°Р·Р°С‚РµР»СЏ
 
-	STUDENT(string, int, int, string);//конструктор с параметрами 
-	STUDENT(const STUDENT&);//конструктор копирования
+	STUDENT(string, int, int, string);//РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё 
+	STUDENT(const STUDENT&);//РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
 
-	string Get_subject() { return subject; }//модификатор 
-	void Set_subject(string);//селектор
+	string Get_subject() { return subject; }//РјРѕРґРёС„РёРєР°С‚РѕСЂ 
+	void Set_subject(string);//СЃРµР»РµРєС‚РѕСЂ
 
-	int Get_mark() { return mark; }//модификатор 
-	void Set_mark(int);//селектор
+	int Get_mark() { return mark; }//РјРѕРґРёС„РёРєР°С‚РѕСЂ 
+	void Set_mark(int);//СЃРµР»РµРєС‚РѕСЂ
 
-	STUDENT& operator=(const STUDENT&);//операция присваивания
+	STUDENT& operator=(const STUDENT&);//РѕРїРµСЂР°С†РёСЏ РїСЂРёСЃРІР°РёРІР°РЅРёСЏ
 
 	void Check_Mark(const STUDENT&);
-	friend istream& operator>>(istream& in, STUDENT& l);//операция ввода
-	friend ostream& operator<<(ostream& out, const STUDENT& l); //операция вывода 
+	friend istream& operator>>(istream& in, STUDENT& l);//РѕРїРµСЂР°С†РёСЏ РІРІРѕРґР°
+	friend ostream& operator<<(ostream& out, const STUDENT& l); //РѕРїРµСЂР°С†РёСЏ РІС‹РІРѕРґР° 
 protected:
-	int mark;//поле оценки студента
-	string subject;//поле предмета
+	int mark;//РїРѕР»Рµ РѕС†РµРЅРєРё СЃС‚СѓРґРµРЅС‚Р°
+	string subject;//РїРѕР»Рµ РїСЂРµРґРјРµС‚Р°
 };

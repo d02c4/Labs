@@ -8,14 +8,14 @@ using namespace std;
 class Vector
 {
 public:
-	Vector(); // конструктор без параметров
-	Vector(int); // Конструктор копирования
-	~Vector(); // деструктор
-	void Add(Object*); // длобавление элемента в вектор
-	friend ostream& operator<<(ostream& out, const Vector&); // операция вывода
+	Vector(); // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Р±РµР· РїР°СЂР°РјРµС‚СЂРѕРІ
+	Vector(int); // РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
+	~Vector(); // РґРµСЃС‚СЂСѓРєС‚РѕСЂ
+	void Add(Object*); // РґР»РѕР±Р°РІР»РµРЅРёРµ СЌР»РµРјРµРЅС‚Р° РІ РІРµРєС‚РѕСЂ
+	friend ostream& operator<<(ostream& out, const Vector&); // РѕРїРµСЂР°С†РёСЏ РІС‹РІРѕРґР°
 private:
-	Object** first; // указатель на первый элемент вектора
-	int size; // размер
-	int current; // текущая позиция
+	Object** first; // СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РїРµСЂРІС‹Р№ СЌР»РµРјРµРЅС‚ РІРµРєС‚РѕСЂР°
+	int size; // СЂР°Р·РјРµСЂ
+	int current; // С‚РµРєСѓС‰Р°СЏ РїРѕР·РёС†РёСЏ
 };
 
