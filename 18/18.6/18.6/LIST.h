@@ -9,18 +9,18 @@ class LIST
 {
 public:
 	LIST();
-	LIST(int s); // Конструктор с параметрами
-	LIST(const LIST& a); // Конструктор с параметрами
-	~LIST(); // деструктор
-	LIST& operator = (const LIST& a);// оператор присваивания
-	int& operator [] (int index); // операция доступа к индексу
+	LIST(int s); // РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё
+	LIST(const LIST& a); // РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё
+	~LIST(); // РґРµСЃС‚СЂСѓРєС‚РѕСЂ
+	LIST& operator = (const LIST& a);// РѕРїРµСЂР°С‚РѕСЂ РїСЂРёСЃРІР°РёРІР°РЅРёСЏ
+	int& operator [] (int index); // РѕРїРµСЂР°С†РёСЏ РґРѕСЃС‚СѓРїР° Рє РёРЅРґРµРєСЃСѓ
 	LIST& operator * (LIST& a);
 	LIST& operator +(int n);
 	int operator ()();
-	void SetData(int); // Сеттер данных ячейки вектора
-	void SetSize(int); // Сеттер размера вектора
-	int GetData(); // Геттер данных ячейчки
-	int GetSize(); //Геттер размера вектора
+	void SetData(int); // РЎРµС‚С‚РµСЂ РґР°РЅРЅС‹С… СЏС‡РµР№РєРё РІРµРєС‚РѕСЂР°
+	void SetSize(int); // РЎРµС‚С‚РµСЂ СЂР°Р·РјРµСЂР° РІРµРєС‚РѕСЂР°
+	int GetData(); // Р“РµС‚С‚РµСЂ РґР°РЅРЅС‹С… СЏС‡РµР№С‡РєРё
+	int GetSize(); //Р“РµС‚С‚РµСЂ СЂР°Р·РјРµСЂР° РІРµРєС‚РѕСЂР°
 	Iterator begin()
 	{
 		return Begin;
