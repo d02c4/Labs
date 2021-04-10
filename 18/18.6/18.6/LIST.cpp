@@ -23,7 +23,7 @@ LIST::LIST(int Size)
 	Current.ptr = Begin.ptr; //!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
 
-// Конструктор копирования
+// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
 LIST::LIST(const LIST& other)
 {
 	Size = other.Size; 
@@ -73,16 +73,16 @@ void LIST::SetSize(int size)
 	this->Size = size;
 }
 
-// Операция присваивания
+// РћРїРµСЂР°С†РёСЏ РїСЂРёСЃРІР°РёРІР°РЅРёСЏ
 LIST& LIST::operator=(const LIST& a)
 {
-	if (this == &a) // Првоверка на самоприсваивание
+	if (this == &a) // РџСЂРІРѕРІРµСЂРєР° РЅР° СЃР°РјРѕРїСЂРёСЃРІР°РёРІР°РЅРёРµ
 	{
 		return *this;
 	}
 
 	Size = a.Size;
-	if (data != 0) // Если ячейка не пуста, то очищаем ячейку
+	if (data != 0) // Р•СЃР»Рё СЏС‡РµР№РєР° РЅРµ РїСѓСЃС‚Р°, С‚Рѕ РѕС‡РёС‰Р°РµРј СЏС‡РµР№РєСѓ
 	{
 		delete[] data;
 	}
@@ -96,7 +96,7 @@ LIST& LIST::operator=(const LIST& a)
 	return *this;
 }
 
-//операция доступа по индексу 
+//РѕРїРµСЂР°С†РёСЏ РґРѕСЃС‚СѓРїР° РїРѕ РёРЅРґРµРєСЃСѓ 
 int&LIST::operator[](int index)
 {
 	if (index < Size)
@@ -110,7 +110,7 @@ int&LIST::operator[](int index)
 	}
 }
 
-//перегрузка  оператора "*"
+//РїРµСЂРµРіСЂСѓР·РєР°  РѕРїРµСЂР°С‚РѕСЂР° "*"
 LIST& LIST::operator *(LIST &other)
 {
 	LIST* res = new LIST;
@@ -130,7 +130,7 @@ LIST& LIST::operator *(LIST &other)
 		j++;
 		for (j; j < Size1; j++)
 		{
-			res->data[j] = 0; // Заполняем разничу 1 и 2 листа нулями, так как число умножить не на что
+			res->data[j] = 0; // Р—Р°РїРѕР»РЅСЏРµРј СЂР°Р·РЅРёС‡Сѓ 1 Рё 2 Р»РёСЃС‚Р° РЅСѓР»СЏРјРё, С‚Р°Рє РєР°Рє С‡РёСЃР»Рѕ СѓРјРЅРѕР¶РёС‚СЊ РЅРµ РЅР° С‡С‚Рѕ
 		}
 		return *res;
 	}
@@ -156,7 +156,7 @@ LIST& LIST::operator *(LIST &other)
 	}	
 }
 
-// определение размера списка
+// РѕРїСЂРµРґРµР»РµРЅРёРµ СЂР°Р·РјРµСЂР° СЃРїРёСЃРєР°
 int LIST::operator ()()
 {
 	return this->Size;
@@ -177,7 +177,7 @@ istream& operator>>(istream& in, LIST& other)
 {
 	for (int i = 0; i < other.Size; i++)
 	{
-		cout << "Введите " << i << " элемент списка: ";
+		cout << "Р’РІРµРґРёС‚Рµ " << i << " СЌР»РµРјРµРЅС‚ СЃРїРёСЃРєР°: ";
 
 		in >> other.data[i];
 	}
