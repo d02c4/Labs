@@ -49,22 +49,3 @@ public:
     friend istream& operator>>(istream& in, Pair& other);
     friend ostream& operator<<(ostream& out, Pair other);
 };
-
-	//template<typename T>
-	//Pair operator+(const T other)
-	//{
-	//	if (other == (int)other)
-	//	{
-	//		Pair result;
-	//		result.first = this->GetFirst() + this->GetSecond();
-	//		result.second = this->second;
-	//		return result;
-	//	}
-	//	else
-	//	{
-	//		Pair result;
-	//		result.first = this->GetFirst;
-	//		result.second = this->GetFirst + this->GetSecond();
-	//		return result;
-	//	}
-	//}
