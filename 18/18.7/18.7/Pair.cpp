@@ -79,7 +79,3 @@ ostream& operator<<(ostream& out, Pair other)
 	out << other.first << ":" << other.second << endl;
 	return out;
 }
-
-
-
-
