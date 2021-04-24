@@ -4,13 +4,13 @@
 
 using namespace std;
 
-class Error//базовый класс
+class Error//Р±Р°Р·РѕРІС‹Р№ РєР»Р°СЃСЃ
 {
 public:
 	virtual void what() {};
 };
 
-class IndexError :public Error //ошибка в индексе вектора
+class IndexError :public Error //РѕС€РёР±РєР° РІ РёРЅРґРµРєСЃРµ РІРµРєС‚РѕСЂР°
 {
 protected:
 	string msg; 
@@ -19,7 +19,7 @@ public:
 	virtual void what() { cout << msg; }
 };
 
-class SizeError :public Error //ошибка в размере вектора
+class SizeError :public Error //РѕС€РёР±РєР° РІ СЂР°Р·РјРµСЂРµ РІРµРєС‚РѕСЂР°
 {
 protected:
 	string msg;
@@ -29,7 +29,7 @@ public:
 };
 
 
-class MaxSizeError :public SizeError //превышение максимального размера
+class MaxSizeError :public SizeError //РїСЂРµРІС‹С€РµРЅРёРµ РјР°РєСЃРёРјР°Р»СЊРЅРѕРіРѕ СЂР°Р·РјРµСЂР°
 {
 protected:
 	string msg_;
@@ -39,7 +39,7 @@ public:
 };
 
 
-class EmptySizeError :public SizeError //удаление из пустого вектора
+class EmptySizeError :public SizeError //СѓРґР°Р»РµРЅРёРµ РёР· РїСѓСЃС‚РѕРіРѕ РІРµРєС‚РѕСЂР°
 {
 protected:
 	string msg_; 
@@ -49,7 +49,7 @@ public:
 };
 
 
-class IndexError1 :public IndexError //индекс меньше нуля
+class IndexError1 :public IndexError //РёРЅРґРµРєСЃ РјРµРЅСЊС€Рµ РЅСѓР»СЏ
 {
 protected:
 string msg_; 
@@ -59,7 +59,7 @@ public:
 };
 
 
-class IndexError2 :public IndexError //индекс больше текущего размера вектора
+class IndexError2 :public IndexError //РёРЅРґРµРєСЃ Р±РѕР»СЊС€Рµ С‚РµРєСѓС‰РµРіРѕ СЂР°Р·РјРµСЂР° РІРµРєС‚РѕСЂР°
 {
 protected:
 	string msg_;
