@@ -1,76 +1,69 @@
 #include <iostream>
 #include <queue>
-
-
 using namespace std;
 
-
-void EnterSize(int* size)
+void EnterSize(int* size) //  фукнция ввода размера очереди
 {
-    cout << "Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂ РѕС‡РµСЂРµРґРё: \t";
+    cout << "Введите размер очереди: \t";
     cin >> *size;
     while (*size < 1)
     {
-        cout << "Р’РІРµРґРµРЅ РЅРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ СЂР°Р·РјРµСЂ РѕС‡РµСЂРµРґРё!" << endl;
-        cout << "Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂ РѕС‡РµСЂРµРґРё: \t";
+        cout << "Введен некорректный размер очереди!" << endl;
+        cout << "Введите размер очереди: \t";
         cin >> *size;
     }
 }
 
 
-void InitQueue(int size, queue<int> &q)
+void InitQueue(int size, queue<int> &q) //  функция создания очереди
 {
-       int a;
-       for (int i = 1; i <= size; i++)
+       int a; //  создание временной переменной которая будет хранить значение одного из элементов очереди
+       for (int i = 1; i <= size; i++) //  цикл от 0 до размера списка
        {
-           cout << "Р’РІРµРґРёС‚Рµ " << i << " СЌР»РµРјРµРЅС‚ РѕС‡РµСЂРµРґРё:\t";
-           cin >> a;
-           q.push(a);
+           cout << "Введите " << i << " элемент очереди:\t";
+           cin >> a; //  ввод элемента списка
+           q.push(a); //  помещение элемента списка в конец очереди
        }
 }
 
 
-void PrintQueue(queue<int> q)
+void PrintQueue(queue<int> q) //  печать всех элементов очереди в консоль
 {
     cout << endl;
-    while (!q.empty())
+    while (!q.empty()) //  пока список не пуст
     {
-        cout << q.front() << " ";
-        q.pop();
+        cout << q.front() << " "; //  вывод элемента списка в консоль
+        q.pop(); //  удаление первого элемента списка из очереди
     }
     cout << endl;
 }
 
-void EditQueue(queue<int> &q)
+void EditQueue(queue<int> &q) //  функция удаления каждого второго элемента очереди
 {
-    int count = 1;
+    int count = 1; //  создаение счетчика
     
-    queue<int> qd;
+    queue<int> qd; //  создание временной очереди
 
-    while (!q.empty())
+    while (!q.empty()) //  проверка на пустоту очереди
     {
-        if (count % 2 != 0)
+        if (count % 2 != 0) //  если элемент нечетный
         {
-            qd.push(q.front());
+            qd.push(q.front()); //   то помещаем его в новую очередь
         }
-        q.pop();
-        count++;
+        q.pop(); // удаляем первый элемент изначальной очереди
+        count++; //   увеличиваем счетчик
     }
-    q = qd;
+    q = qd; //  приравниваем временную очередь к старой очереди
 }
 
 int main()
 {
-
     setlocale(LC_ALL, "Ru");
     int size;
     EnterSize(&size);
-
 	queue<int> q;
     InitQueue(size, q);
-
     PrintQueue(q);
     EditQueue(q);
     PrintQueue(q);
-
 }

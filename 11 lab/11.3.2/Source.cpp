@@ -1,76 +1,75 @@
 #include <iostream>
-#include <stack>
+#include <stack> // подключаем библиотеку stack
 
 using namespace std;
 
 
-void InitSize(int* size)
+void InitSize(int* size) // функция для ввода размера стека
 {
-	cout << "Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂ СЃС‚РµРєР°: \t";
+	cout << "Введите размер стека: \t";
 	cin >> *size;
 	while (*size < 1)
 	{
-		cout << "Р’РІРµРґРµРЅ РЅРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ СЂР°Р·РјРµСЂ СЃС‚РµРєР°!" << endl;
-		cout << "Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂ СЃС‚РµРєР°: \t";
+		cout << "Введен некорректный размер стека!" << endl;
+		cout << "Введите размер стека: \t";
 		cin >> *size;
 	}
 }
 
-void StackInit(stack<double>& st, int size)
+void StackInit(stack<double>& st, int size) // функция создания стека
 {
-	double a;
-	for (int i = 0; i < size; i++)
+	double a; // выделение память под верменную переменную
+	for (int i = 0; i < size; i++) // проходимся от 0 до размера стека
 	{
-		cout << "Р’РІРµРґРёС‚Рµ " << i + 1 << " СЌР»РµРјРµРЅС‚ СЃС‚РµРєР°:\t";
-		cin >> a;
-		st.push(a);
+		cout << "Введите " << i + 1 << " элемент стека:\t";
+		cin >> a; // пользователь указывает значение информационного поля для каждого элемента стека
+		st.push(a); // элемент кладется в стек
 	}
 }
 
-void EditStack(stack<double> &st, int *size)
+void EditStack(stack<double> &st, int *size) // функция редактирования стека
 {
-	stack<double> Dst;
-	for (int i = 0; i < *size; i++)
+	stack<double> Dst; // выделтение память под временный стек
+	for (int i = 0; i < *size; i++) // проходимя по всему стеку и заполняем новый стек, только данный стек будет развернут по отношению к первому
 	{
-		Dst.push(st.top());
-		st.pop();
+		Dst.push(st.top()); // первый элемент становится последним в новом стеке и так далее
+		st.pop(); // вынимаем верхний элемент старого стека, в итоге старый стек станет пустым
 	}
-	for (int i = 0; i < *size; i++)
+	for (int i = 0; i < *size; i++) // проходимся по всем элементам нового стека
 	{
-		if (Dst.top() < 0)
+		if (Dst.top() < 0) // проверяем все элементы стека на отрицательность
 		{
-			st.push(Dst.top());
-			st.push(0);
+			st.push(Dst.top()); // кладем верхний элемент нового стека в старый стек
+			st.push(0); // после этого кладем новый элемент равный 0
 		}
 		else
 		{
-			st.push(Dst.top());
+			st.push(Dst.top()); // кладем верхний элемент нового стека в старый стек 
 		}
-		Dst.pop();
+		Dst.pop(); // достаем из нового стека верхний элемент
 	}
-	*size = st.size();
+	*size = st.size(); // кладем верхний элемент нового стека в старый стек изменяем значение размера стека на получившийся размер
 }
 
-void PrintStack(stack<double> st, int size)
+void PrintStack(stack<double> st, int size) // функция печати всех элементов стека
 {
 	cout << endl << endl;
-	if (size == 0)
+	if (size == 0) // проверка размера стека на 0
 	{
-		cout << "РЎС‚РµРє РїСѓСЃС‚!\n";
+		cout << "Стек пуст!\n";
 	}
 	else
 	{
-		for (int i = 0; i < size; i++)
+		for (int i = 0; i < size; i++) // прозодимся во всем элементам стека
 		{
-			cout << st.top() << " ";
-			st.pop();
+			cout << st.top() << " "; // выводим каждый элемент стека в консоль
+			st.pop(); // достаем верхний элемент из стека
 		}
 	}
 }
 
 int main()
 {
-
 	setlocale(LC_ALL, "Ru");
 	int size;
 	InitSize(&size);
