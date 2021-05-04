@@ -14,7 +14,7 @@ public:
 		data = nullptr;
 	}
 
-	LIST(int Size) // Конструктор с параметрами
+	LIST(int Size) // РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё
 	{
 		this->Size = Size;
 		data = new T[Size];
@@ -25,7 +25,7 @@ public:
 	}
 
 
-	LIST(const LIST& other) // Конструктор с параметрами
+	LIST(const LIST& other) // РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё
 	{
 		Size = other.Size;
 
@@ -41,7 +41,7 @@ public:
 		}
 	}
 
-	~LIST() // деструктор
+	~LIST() // РґРµСЃС‚СЂСѓРєС‚РѕСЂ
 	{
 		if (this->data != nullptr)
 		{
@@ -49,15 +49,15 @@ public:
 		}
 		data = nullptr;
 	}
-	LIST& operator = (const LIST& a)// оператор присваивания
+	LIST& operator = (const LIST& a)// РѕРїРµСЂР°С‚РѕСЂ РїСЂРёСЃРІР°РёРІР°РЅРёСЏ
 	{
-		if (this == &a) // Првоверка на самоприсваивание
+		if (this == &a) // РџСЂРІРѕРІРµСЂРєР° РЅР° СЃР°РјРѕРїСЂРёСЃРІР°РёРІР°РЅРёРµ
 		{
 			return *this;
 		}
 
 		Size = a.Size;
-		if (data != 0) // Если ячейка не пуста, то очищаем ячейку
+		if (data != 0) // Р•СЃР»Рё СЏС‡РµР№РєР° РЅРµ РїСѓСЃС‚Р°, С‚Рѕ РѕС‡РёС‰Р°РµРј СЏС‡РµР№РєСѓ
 		{
 			delete[] data;
 		}
@@ -72,7 +72,7 @@ public:
 	}
 
 
-	T& operator [] (int index) // операция доступа к индексу
+	T& operator [] (int index) // РѕРїРµСЂР°С†РёСЏ РґРѕСЃС‚СѓРїР° Рє РёРЅРґРµРєСЃСѓ
 	{
 		if (index < Size)
 		{
@@ -135,17 +135,17 @@ public:
 
 	LIST<double>& LR()
 	{
-		cout << "Введите диапазон\n";
+		cout << "Р’РІРµРґРёС‚Рµ РґРёР°РїР°Р·РѕРЅ\n";
 		int left = -1;
 		while (left < 0 || left > 15)
 		{
-			cout << "Левая граница: ";
+			cout << "Р›РµРІР°СЏ РіСЂР°РЅРёС†Р°: ";
 			cin >> left;
 		}
 		int right = -1;
 		while (right < left || right > this->Size)
 		{
-			cout << "Правая граница граница: ";
+			cout << "РџСЂР°РІР°СЏ РіСЂР°РЅРёС†Р° РіСЂР°РЅРёС†Р°: ";
 			cin >> right;
 		}
 		
@@ -190,7 +190,7 @@ public:
 			j++;
 			for (j; j < Size1; j++)
 			{
-				res->data[j] = 0; // Заполняем разничу 1 и 2 листа нулями, так как число умножить не на что
+				res->data[j] = 0; // Р—Р°РїРѕР»РЅСЏРµРј СЂР°Р·РЅРёС‡Сѓ 1 Рё 2 Р»РёСЃС‚Р° РЅСѓР»СЏРјРё, С‚Р°Рє РєР°Рє С‡РёСЃР»Рѕ СѓРјРЅРѕР¶РёС‚СЊ РЅРµ РЅР° С‡С‚Рѕ
 			}
 			return *res;
 		}
@@ -221,17 +221,17 @@ public:
 		return this->Size;
 	}
 
-	void SetSize(int size) // Сеттер размера вектора
+	void SetSize(int size) // РЎРµС‚С‚РµСЂ СЂР°Р·РјРµСЂР° РІРµРєС‚РѕСЂР°
 	{
 		this->Size = size;
 	}
 
-	int GetData() // Геттер данных ячейчки
+	int GetData() // Р“РµС‚С‚РµСЂ РґР°РЅРЅС‹С… СЏС‡РµР№С‡РєРё
 	{
 		return *this->data;
 	}
 
-	int GetSize() //Геттер размера вектора
+	int GetSize() //Р“РµС‚С‚РµСЂ СЂР°Р·РјРµСЂР° РІРµРєС‚РѕСЂР°
 	{
 		this->Size = size;
 	}
@@ -266,7 +266,7 @@ istream& operator>> <>(istream& in, LIST<T>& other)
 {
 	for (int i = 0; i < other.Size; i++)
 	{
-		cout << "Введите " << i << " элемент списка: ";
+		cout << "Р’РІРµРґРёС‚Рµ " << i << " СЌР»РµРјРµРЅС‚ СЃРїРёСЃРєР°: ";
 
 		in >> other.data[i];
 	}
