@@ -21,19 +21,19 @@ public:
     void Show()
     {
         setlocale(LC_ALL, "Ru");
-        cout << "Íàçâàíèå æóðíàëà: " << this->name << endl;
-        cout << "Àâòîð: " << this->author << endl;
-        cout << "Êîëè÷åñòâî ñòðàíèö: " << this->pages << endl;
+        cout << "ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ Ð¶ÑƒÑ€Ð½Ð°Ð»Ð°: " << this->name << endl;
+        cout << "ÐÐ²Ñ‚Ð¾Ñ€: " << this->author << endl;
+        cout << "ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†: " << this->pages << endl;
     }
 
     void Input()
     {
         setlocale(LC_ALL, "Ru");
-        cout << "Ââåäèòå íàçâàíèå æóðíàëà: ";
+        cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð½Ð°Ð·Ð²Ð°Ð½Ð¸Ðµ Ð¶ÑƒÑ€Ð½Ð°Ð»Ð°: ";
         cin >> this->name;
-        cout << "Àâòîð: ";
+        cout << "ÐÐ²Ñ‚Ð¾Ñ€: ";
         cin >> this->author;
-        cout << "Ââåäèòå êîëè÷åñòâî ñòðàíèö â æóðíàëå: ";
+        cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ† Ð² Ð¶ÑƒÑ€Ð½Ð°Ð»Ðµ: ";
         cin >> this->pages;
     }
 };
