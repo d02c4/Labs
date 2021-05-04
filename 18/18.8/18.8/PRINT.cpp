@@ -46,7 +46,7 @@ void PRINT::setAuthor(string author)
 
 PRINT& PRINT::operator=(const PRINT& other)
 {
-	if (&other == this) // проверка на самоприсваивание
+	if (&other == this) // РїСЂРѕРІРµСЂРєР° РЅР° СЃР°РјРѕРїСЂРёСЃРІР°РёРІР°РЅРёРµ
 	{
 		return *this;
 	}
@@ -61,16 +61,16 @@ PRINT& PRINT::operator=(const PRINT& other)
 void PRINT::Show()
 {
 	setlocale(LC_ALL, "Ru");
-	cout << "Название печатного издания: " << this->name << endl;
-	cout << "Автор: " << this->author << endl;
+	cout << "РќР°Р·РІР°РЅРёРµ РїРµС‡Р°С‚РЅРѕРіРѕ РёР·РґР°РЅРёСЏ: " << this->name << endl;
+	cout << "РђРІС‚РѕСЂ: " << this->author << endl;
 }
 
 
 void PRINT::Input()
 {
-	cout << "Введите название печатного издания: ";
+	cout << "Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ РїРµС‡Р°С‚РЅРѕРіРѕ РёР·РґР°РЅРёСЏ: ";
 	cin >> this->name;
-	cout << "Введите автора: ";
+	cout << "Р’РІРµРґРёС‚Рµ Р°РІС‚РѕСЂР°: ";
 	cin >> this->author;
 }
 
@@ -81,7 +81,7 @@ void PRINT::HandleEvent(TEvent& event)
 	{
 		switch (event.command)
 		{
-		case cmdName: cout << "Название издания: " << getName() << endl; break;
+		case cmdName: cout << "РќР°Р·РІР°РЅРёРµ РёР·РґР°РЅРёСЏ: " << getName() << endl; break;
 		}
 	}
 }
