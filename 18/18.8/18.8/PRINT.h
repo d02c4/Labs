@@ -9,22 +9,22 @@ using namespace std;
 class PRINT:public Object
 {
 protected:
-	string name; // поле названия печатного издания
-	string author; // поле автора печатного издания
+	string name; // РїРѕР»Рµ РЅР°Р·РІР°РЅРёСЏ РїРµС‡Р°С‚РЅРѕРіРѕ РёР·РґР°РЅРёСЏ
+	string author; // РїРѕР»Рµ Р°РІС‚РѕСЂР° РїРµС‡Р°С‚РЅРѕРіРѕ РёР·РґР°РЅРёСЏ
 public:
-	PRINT(); // конструктор без параметров
-	PRINT(string name, string author); // конструктор с параметрами
-	PRINT(const PRINT& other); // конструктор копирования
-	~PRINT(); // деструктор
+	PRINT(); // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Р±РµР· РїР°СЂР°РјРµС‚СЂРѕРІ
+	PRINT(string name, string author); // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё
+	PRINT(const PRINT& other); // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
+	~PRINT(); // РґРµСЃС‚СЂСѓРєС‚РѕСЂ
 
-	string getName(); // геттер названия
-	string getAuthor(); // геттер автора
-	void setName(string name); // сеттер названия
-	void setAuthor(string author);// сеттер автора
+	string getName(); // РіРµС‚С‚РµСЂ РЅР°Р·РІР°РЅРёСЏ
+	string getAuthor(); // РіРµС‚С‚РµСЂ Р°РІС‚РѕСЂР°
+	void setName(string name); // СЃРµС‚С‚РµСЂ РЅР°Р·РІР°РЅРёСЏ
+	void setAuthor(string author);// СЃРµС‚С‚РµСЂ Р°РІС‚РѕСЂР°
 
-	PRINT& operator = (const PRINT& other); // перегрузка оператора =
-	void Show(); // функция печати
-	void Input(); // функция ввода
-	void HandleEvent(TEvent& event); // функция обратотки события
+	PRINT& operator = (const PRINT& other); // РїРµСЂРµРіСЂСѓР·РєР° РѕРїРµСЂР°С‚РѕСЂР° =
+	void Show(); // С„СѓРЅРєС†РёСЏ РїРµС‡Р°С‚Рё
+	void Input(); // С„СѓРЅРєС†РёСЏ РІРІРѕРґР°
+	void HandleEvent(TEvent& event); // С„СѓРЅРєС†РёСЏ РѕР±СЂР°С‚РѕС‚РєРё СЃРѕР±С‹С‚РёСЏ
 };
 
