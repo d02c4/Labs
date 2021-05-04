@@ -31,12 +31,12 @@ void Vector::add()
 	setlocale(LC_ALL, "Ru");
 	if (this->size == 0)
 	{
-		cout << "¬ÂÍÚÓ ÌÂ ÒÓÁ‰‡Ì!" << endl;
+		cout << "–í–µ–∫—Ç–æ—Ä –Ω–µ —Å–æ–∑–¥–∞–Ω!" << endl;
 		return;
 	}
 	if (this->size == this->current)
 	{
-		cout << "¬ ‚ÂÍÚÓÂ ÌÂ ÓÒÚ‡ÎÓÒ¸ ÏÂÒÚ‡!" << endl;
+		cout << "–í –≤–µ–∫—Ç–æ—Ä–µ –Ω–µ –æ—Å—Ç–∞–ª–æ—Å—å –º–µ—Å—Ç–∞!" << endl;
 		return;
 	}
 	int choise = 0;
@@ -48,18 +48,18 @@ void Vector::add()
 		{
 		case 1: {PRINT* tmp = new PRINT; tmp->Input(); ptr = tmp; f = true; break; }
 		case 2: {Magazine* tmp = new Magazine; tmp->Input(); ptr = tmp; f = true; break; }
-		default: cout << endl << "Œ·˙ÂÍÚ Í‡ÍÓ„Ó ÍÎ‡ÒÒ‡ ‚˚ ıÓÚËÚÂ ‰Ó·‡‚Ú¸ ‚ „ÛÔÔÛ?" << endl;
-			cout << "1: œÂ˜‡ÚÌÓÂ ËÁ‰‡ÌËÂ" << endl;
-			cout << "2: ∆ÛÌ‡Î" << endl;
-			cout << "¬˚·Ó: ";
+		default: cout << endl << "–û–±—ä–µ–∫—Ç –∫–∞–∫–æ–≥–æ –∫–ª–∞—Å—Å–∞ –≤—ã —Ö–æ—Ç–∏—Ç–µ –¥–æ–±–∞–≤—Ç—å –≤ –≥—Ä—É–ø–ø—É?" << endl;
+			cout << "1: –ü–µ—á–∞—Ç–Ω–æ–µ –∏–∑–¥–∞–Ω–∏–µ" << endl;
+			cout << "2: –ñ—É—Ä–Ω–∞–ª" << endl;
+			cout << "–í—ã–±–æ—Ä: ";
 			cin >> choise;
 			break;
 		}
 	}
-	if (this->current < size) // ÔÓ‚ÂÍ‡ Ì‡ ÍÓÂÍÚÌÓÒÚ¸ ‡ÁÏÂ‡
+	if (this->current < size) // –ø—Ä–æ–≤–µ—Ä–∫–∞ –Ω–∞ –∫–æ—Ä—Ä–µ–∫—Ç–Ω–æ—Å—Ç—å —Ä–∞–∑–º–µ—Ä–∞
 	{
-		this->begin[this->current] = ptr; //‰Ó·‡‚ÎˇÂÏ ˝ÎÂÏÂÌÚ ‚ ‚ÂÍÚÓ
-		this->current++; // Ò‰‚Ë„‡ÂÏ ÛÍ‡Á‡ÚÂÎ¸ Ì‡ ÚÂÍÛ˘ËÈ ˝ÎÂÏÂÌÚ
+		this->begin[this->current] = ptr; //–¥–æ–±–∞–≤–ª—è–µ–º —ç–ª–µ–º–µ–Ω—Ç –≤ –≤–µ–∫—Ç–æ—Ä
+		this->current++; // —Å–¥–≤–∏–≥–∞–µ–º —É–∫–∞–∑–∞—Ç–µ–ª—å –Ω–∞ —Ç–µ–∫—É—â–∏–π —ç–ª–µ–º–µ–Ω—Ç
 	}
 }
 
@@ -67,11 +67,11 @@ void Vector::show()
 {
 	if (this->current == 0)
 	{
-		cout << "¬ÂÍÚÓ ÔÛÒÚ!\n";
+		cout << "–í–µ–∫—Ç–æ—Ä –ø—É—Å—Ç!\n";
 	}
 	else
 	{
-		Object** ptr = this->begin; // ÒÓÁ‰‡ÂÏ ÍÓÔË˛
+		Object** ptr = this->begin; // —Å–æ–∑–¥–∞–µ–º –∫–æ–ø–∏—é
 		for (int i = 0; i < current; i++)
 		{
 			(*ptr)->Show();
@@ -85,7 +85,7 @@ void Vector::del()
 {
 	if (this->size == 0)
 	{
-		cout << "¬ÂÍÚÓ ÌÂ ÒÛ˘ÂÒÚ‚ÛÂÚ!\n";
+		cout << "–í–µ–∫—Ç–æ—Ä –Ω–µ —Å—É—â–µ—Å—Ç–≤—É–µ—Ç!\n";
 	}
 	else
 	{
