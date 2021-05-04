@@ -14,27 +14,27 @@ Dialog::~Dialog() {}
 
 void Dialog::GetEvent(TEvent& event)
 {
-	string OpInt = "m+-szqh"; // строка содержащая коды операций
+	string OpInt = "m+-szqh"; // СЃС‚СЂРѕРєР° СЃРѕРґРµСЂР¶Р°С‰Р°СЏ РєРѕРґС‹ РѕРїРµСЂР°С†РёР№
 	string s = "";
-	cout << "Ваше действие: ";
+	cout << "Р’Р°С€Рµ РґРµР№СЃС‚РІРёРµ: ";
 	getline(cin, s);
-	if (OpInt.find(s[0]) != -1) // является ли символ кодом операции
+	if (OpInt.find(s[0]) != -1) // СЏРІР»СЏРµС‚СЃСЏ Р»Рё СЃРёРјРІРѕР» РєРѕРґРѕРј РѕРїРµСЂР°С†РёРё
 	{
 		event.what = evMessege;
 		switch (s[0])
 		{
-		case 'm': event.command = cmdMake; break; // создать группу
-		case '+': event.command = cmdAdd; break; // добавить объект в группу
-		case '-': event.command = cmdDel; break; // удалить объект из группы
-		case 's': event.command = cmdShow; break; // вывод в консоль
-		case 'z': event.command = cmdName; break; // вывод имени объектов группы в консоль
-		case 'q': event.command = cmdQuit; break; // выход из программы
-		case 'h': event.command = cmdHelp; break; // вывод списка команд
+		case 'm': event.command = cmdMake; break; // СЃРѕР·РґР°С‚СЊ РіСЂСѓРїРїСѓ
+		case '+': event.command = cmdAdd; break; // РґРѕР±Р°РІРёС‚СЊ РѕР±СЉРµРєС‚ РІ РіСЂСѓРїРїСѓ
+		case '-': event.command = cmdDel; break; // СѓРґР°Р»РёС‚СЊ РѕР±СЉРµРєС‚ РёР· РіСЂСѓРїРїС‹
+		case 's': event.command = cmdShow; break; // РІС‹РІРѕРґ РІ РєРѕРЅСЃРѕР»СЊ
+		case 'z': event.command = cmdName; break; // РІС‹РІРѕРґ РёРјРµРЅРё РѕР±СЉРµРєС‚РѕРІ РіСЂСѓРїРїС‹ РІ РєРѕРЅСЃРѕР»СЊ
+		case 'q': event.command = cmdQuit; break; // РІС‹С…РѕРґ РёР· РїСЂРѕРіСЂР°РјРјС‹
+		case 'h': event.command = cmdHelp; break; // РІС‹РІРѕРґ СЃРїРёСЃРєР° РєРѕРјР°РЅРґ
 		}
 		if (s.length() > 1)
 		{
-			string param = s.substr(1, s.length() - 1); //строка без первого символа
-			event.parameter = stoi(param); // достаем числа из строки
+			string param = s.substr(1, s.length() - 1); //СЃС‚СЂРѕРєР° Р±РµР· РїРµСЂРІРѕРіРѕ СЃРёРјРІРѕР»Р°
+			event.parameter = stoi(param); // РґРѕСЃС‚Р°РµРј С‡РёСЃР»Р° РёР· СЃС‚СЂРѕРєРё
 		}
 		else
 		{
@@ -54,7 +54,7 @@ void Dialog::HandleEvent(TEvent& event)
 	{
 		switch (event.command)
 		{
-		case cmdMake: // кейс создания группы
+		case cmdMake: // РєРµР№СЃ СЃРѕР·РґР°РЅРёСЏ РіСЂСѓРїРїС‹
 		{
 			int size = event.parameter;
 			this->begin = new Object * [size];
@@ -63,25 +63,25 @@ void Dialog::HandleEvent(TEvent& event)
 			ClearEvent(event);
 			break;
 		}
-		case cmdAdd: // кейс добавления объекта в группу
+		case cmdAdd: // РєРµР№СЃ РґРѕР±Р°РІР»РµРЅРёСЏ РѕР±СЉРµРєС‚Р° РІ РіСЂСѓРїРїСѓ
 		{
 			add();
 			ClearEvent(event);
 			break;
 		}
-		case cmdDel: // кейс удалениия объекта из группы
+		case cmdDel: // РєРµР№СЃ СѓРґР°Р»РµРЅРёРёСЏ РѕР±СЉРµРєС‚Р° РёР· РіСЂСѓРїРїС‹
 		{
 			del();
 			ClearEvent(event);
 			break;
 		}
-		case cmdShow: // кейс вывода всех элементов в консоль
+		case cmdShow: // РєРµР№СЃ РІС‹РІРѕРґР° РІСЃРµС… СЌР»РµРјРµРЅС‚РѕРІ РІ РєРѕРЅСЃРѕР»СЊ
 		{
 			show();
 			ClearEvent(event);
 			break;
 		}
-		case cmdQuit: // кейс выхода из программы
+		case cmdQuit: // РєРµР№СЃ РІС‹С…РѕРґР° РёР· РїСЂРѕРіСЂР°РјРјС‹
 		{
 			EndState = 1;
 			ClearEvent(event);
@@ -89,14 +89,14 @@ void Dialog::HandleEvent(TEvent& event)
 		}
 		case cmdHelp:
 		{
-			cout <<endl << "Список команд:" << endl;
-			cout << "m<size>: Создание группы размера size, по умолчанию size = 0" << endl;
-			cout << "<+>:     Добавление элемента в группу" << endl;
-			cout << "<->:     Удаление элемента группы" << endl;
-			cout << "<s>:     Вывод полной информации о всех элементах" << endl;
-			cout << "<z>:     Вывод названий всех элементов" << endl;
-			cout << "<q>:     Выход из программы" << endl;
-			cout << "<h>:     Список команд" << endl;
+			cout <<endl << "РЎРїРёСЃРѕРє РєРѕРјР°РЅРґ:" << endl;
+			cout << "m<size>: РЎРѕР·РґР°РЅРёРµ РіСЂСѓРїРїС‹ СЂР°Р·РјРµСЂР° size, РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ size = 0" << endl;
+			cout << "<+>:     Р”РѕР±Р°РІР»РµРЅРёРµ СЌР»РµРјРµРЅС‚Р° РІ РіСЂСѓРїРїСѓ" << endl;
+			cout << "<->:     РЈРґР°Р»РµРЅРёРµ СЌР»РµРјРµРЅС‚Р° РіСЂСѓРїРїС‹" << endl;
+			cout << "<s>:     Р’С‹РІРѕРґ РїРѕР»РЅРѕР№ РёРЅС„РѕСЂРјР°С†РёРё Рѕ РІСЃРµС… СЌР»РµРјРµРЅС‚Р°С…" << endl;
+			cout << "<z>:     Р’С‹РІРѕРґ РЅР°Р·РІР°РЅРёР№ РІСЃРµС… СЌР»РµРјРµРЅС‚РѕРІ" << endl;
+			cout << "<q>:     Р’С‹С…РѕРґ РёР· РїСЂРѕРіСЂР°РјРјС‹" << endl;
+			cout << "<h>:     РЎРїРёСЃРѕРє РєРѕРјР°РЅРґ" << endl;
 			ClearEvent(event);
 			break;
 		}
