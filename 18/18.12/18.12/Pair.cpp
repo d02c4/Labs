@@ -2,10 +2,10 @@
 #include <iostream> 
 using namespace std;
 
-//перегрузка операции присваивания 
+//РїРµСЂРµРіСЂСѓР·РєР° РѕРїРµСЂР°С†РёРё РїСЂРёСЃРІР°РёРІР°РЅРёСЏ 
 Pair& Pair::operator=(const Pair& other)
 {
-	if (&other == this) return *this; //проверка на самоприсваивание
+	if (&other == this) return *this; //РїСЂРѕРІРµСЂРєР° РЅР° СЃР°РјРѕРїСЂРёСЃРІР°РёРІР°РЅРёРµ
 	this->first = other.first;
 	this->second = other.second;
 	return *this;
@@ -64,17 +64,17 @@ bool Pair::operator <(const Pair& other)
 }
 
 
-//перегрузка глобальной функции-операции ввода 
+//РїРµСЂРµРіСЂСѓР·РєР° РіР»РѕР±Р°Р»СЊРЅРѕР№ С„СѓРЅРєС†РёРё-РѕРїРµСЂР°С†РёРё РІРІРѕРґР° 
 istream& operator>>(istream& in, Pair& other)
 {
-	cout << "Первое число: ";
+	cout << "РџРµСЂРІРѕРµ С‡РёСЃР»Рѕ: ";
 	in >> other.first;
-	cout << "Второе число: ";
+	cout << "Р’С‚РѕСЂРѕРµ С‡РёСЃР»Рѕ: ";
 	in >> other.second;
 	return in;
 }
 
-//перегрузка глобальной функции-операции вывода 
+//РїРµСЂРµРіСЂСѓР·РєР° РіР»РѕР±Р°Р»СЊРЅРѕР№ С„СѓРЅРєС†РёРё-РѕРїРµСЂР°С†РёРё РІС‹РІРѕРґР° 
 ostream& operator<<(ostream& out, const Pair& other)
 {
 	return (out << other.first << " : " << other.second);
