@@ -41,12 +41,12 @@ void Stack::push(string elem)
 {
 	if (st_size < 1024)
 	{
-		for (int i = st_size; i > 0; i--)  // сдвигаем все элементы на 1
+		for (int i = st_size; i > 0; i--)  // СЃРґРІРёРіР°РµРј РІСЃРµ СЌР»РµРјРµРЅС‚С‹ РЅР° 1
 		{
 			st_stack[i] = st_stack[i - 1];
 		}
-		st_stack[0] = elem; // элемент становится первым
-		st_size++; // размер стека увеличивается на 1
+		st_stack[0] = elem; // СЌР»РµРјРµРЅС‚ СЃС‚Р°РЅРѕРІРёС‚СЃСЏ РїРµСЂРІС‹Рј
+		st_size++; // СЂР°Р·РјРµСЂ СЃС‚РµРєР° СѓРІРµР»РёС‡РёРІР°РµС‚СЃСЏ РЅР° 1
 	}
 }
 
@@ -65,7 +65,7 @@ string Stack::top()
 	}
 	else
 	{
-		cout << "Стек пуст!";
+		cout << "РЎС‚РµРє РїСѓСЃС‚!";
 		return "";
 	}
 }
@@ -86,7 +86,7 @@ void Stack::pop()
 istream& operator>>(istream& in, Stack& other)
 {
 	string value;
-	cout << "\n\nВведите значение: ";
+	cout << "\n\nР’РІРµРґРёС‚Рµ Р·РЅР°С‡РµРЅРёРµ: ";
 	in >> value;
 	other.push(value);
 	return in;
@@ -95,7 +95,7 @@ istream& operator>>(istream& in, Stack& other)
 
 ostream& operator<<(ostream& out, Stack& other)
 {
-	cout << "\n\nСтек размера " << other.st_size << " : ";
+	cout << "\n\nРЎС‚РµРє СЂР°Р·РјРµСЂР° " << other.st_size << " : ";
 	for (int i = 0; i < other.st_size; i++) 
 	{
 		cout << other.st_stack[i] << "\t";
