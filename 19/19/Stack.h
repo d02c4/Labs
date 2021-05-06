@@ -11,9 +11,9 @@ private:
 	int st_size;
 	string* st_stack;
 public:
-	Stack(); // конструктор по умолчанию
-	Stack(int size); // конструктор с параметрами
-	Stack(Stack& st); // конструктор копирования
+	Stack(); // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+	Stack(int size); // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё
+	Stack(Stack& st); // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
 	~Stack();
 	string top();
 	void push(string elem);
