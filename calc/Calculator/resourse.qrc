@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/audio">
+        <file>res/sound/main_button.wav</file>
+        <file>res/sound/mb_result.wav</file>
+        <file>res/sound/minecraft_click.wav</file>
+        <file>res/sound/oh-shit-iam-sorry.wav</file>
+        <file>res/sound/sorry-for-what.wav</file>
+    </qresource>
+    <qresource prefix="/ico">
+        <file>res/ico/calculator.png</file>
+    </qresource>
+</RCC>
