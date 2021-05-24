@@ -25,6 +25,9 @@ kommi_main::kommi_main(QWidget *parent)
     , ui(new Ui::kommi_main)
 {
     ui->setupUi(this);
+    setWindowIcon(QIcon(":/res/1.png"));
+    setWindowTitle("Задача Коммивояжера");
+    this->setWindowFlags(this->windowFlags() | Qt::MSWindowsFixedSizeDialogHint);
 }
 
 kommi_main::~kommi_main()
@@ -96,17 +99,17 @@ void kommi_main::DrawLines(QGraphicsScene* scene)
     centerY = scene->height() / 2;
     QPen pen(Qt::darkCyan);
     pen.setWidth(3);
-    double iter = 2 * M_PI / copy_table_vector.size();
+    double phi = 2 * M_PI / copy_table_vector.size();
     for (int i = 0; i < copy_table_vector.size(); i++){
         for (int j = 0; j < i; j++){
             if (way_from_to(i, j) > 0)
             {
                 // первая точка прямой
-                int dot_1_x = centerX + cos(iter * i) * radiusR2;
-                int dot_1_y = centerY - sin(iter * i) * radiusR2;
+                int dot_1_x = centerX + cos(phi * i) * radiusR2;
+                int dot_1_y = centerY - sin(phi * i) * radiusR2;
                 // вторая точка прямой
-                int dot_2_x = centerX + cos(iter * j) * radiusR2;
-                int dot_2_y = centerY - sin(iter * j) * radiusR2;
+                int dot_2_x = centerX + cos(phi * j) * radiusR2;
+                int dot_2_y = centerY - sin(phi * j) * radiusR2;
                 QGraphicsItem *line = scene->addLine(dot_1_x, dot_1_y, dot_2_x, dot_2_y, pen);
                 scene->addItem(line);
                 QGraphicsTextItem *number = scene->addText(QString::number(way_from_to(i, j)), QFont("Snap ITC"));
@@ -119,7 +122,7 @@ void kommi_main::DrawLines(QGraphicsScene* scene)
 
 void kommi_main::DrawTops(QGraphicsScene* scene)
 {
-    double iter = 2 * M_PI / copy_table_vector.size();
+    double phi = 2 * M_PI / copy_table_vector.size();
     QPen pen(Qt::black);
     pen.setWidth(3);
     for (int i = 0; i < copy_table_vector.size(); i++)
@@ -127,11 +130,11 @@ void kommi_main::DrawTops(QGraphicsScene* scene)
         QBrush brush;
         brush.setColor(Qt::gray);
         brush.setStyle(Qt::SolidPattern);
-        QGraphicsItem *node = scene->addEllipse(centerX + cos(iter * i) * radiusR2 - radiusR1, centerY - sin(iter * i) * radiusR2 - radiusR1, 2*radiusR1, 2*radiusR1, pen, brush);
+        QGraphicsItem *node = scene->addEllipse(centerX + cos(phi * i) * radiusR2 - radiusR1, centerY - sin(phi * i) * radiusR2 - radiusR1, 2*radiusR1, 2*radiusR1, pen, brush);
         scene->addItem(node);
 
         QGraphicsTextItem *number = scene->addText(QString::number(i+1), QFont("Snap ITC"));
-        number->setPos(centerX + cos(iter * i) * radiusR2 - radiusR1/2, centerY - sin(iter * i) * radiusR2 - radiusR1);
+        number->setPos(centerX + cos(phi * i) * radiusR2 - radiusR1/2, centerY - sin(phi * i) * radiusR2 - radiusR1);
     }
 }
 
@@ -337,21 +340,7 @@ void kommi_main::print_way()
     for (int i = 0; i < way.size(); i++) {
         qDebug() << way[i].i << "->" << way[i].j;
     }
-//    int i=0;
-//     int current = 0;
-//     while (i<way.size())
-//     {
-//         if(number_of_top==way[i])
-//         {
-//             qDebug() << way[i] + 1 << "->" << way[i + 1] + 1;
-//             current=i+1;
-//         }
-//         i += 2;
-//     }
-//     number_of_top=way[current];
-//     k++;
-//     if (k != 6)
-//         print_way();
+
 }
 //===========================================================
 void kommi_main::Kommi()
