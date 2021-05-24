@@ -13,18 +13,18 @@ struct HELP
 };
 struct FIB
 {
-	int f1[6] = {5, 0, 3, 1, 0, 1};
-	int f2[6] = {8, 3, 0, 2, 1, 0};
-	int f3[6] = {0, 5, 2, 0, 1, 0};
+	int f1[6] = { 5, 0, 3, 1, 0, 1 };
+	int f2[6] = { 8, 3, 0, 2, 1, 0 };
+	int f3[6] = { 0, 5, 2, 0, 1, 0 };
 };
 void InitSize(int* size)
 {
-	cout << "Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂ РјР°СЃСЃРёРІР°:\t";
+	cout << "Введите размер массива:\t";
 	cin >> *size;
 	while ((*size) < 1)
 	{
-		cout << "Р Р°Р·РјРµСЂ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РЅР°С‚СѓСЂР°Р»СЊРЅС‹Рј С‡РёСЃР»РѕРј!" << endl;
-		cout << "Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂ РјР°СЃСЃРёРІР°:\t";
+		cout << "Размер должен быть натуральным числом!" << endl;
+		cout << "Введите размер массива:\t";
 		cin >> *size;
 	}
 }
@@ -32,13 +32,13 @@ void InitArr(int* arr, int* size)
 {
 
 	int r;
-	cout << "Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ РґРѕ РєРѕС‚РѕСЂРѕРіРѕ Р±СѓРґСѓС‚ РіРµРЅРµСЂРёСЂРѕРІР°С‚СЊСЃСЏ С‡РёСЃР»Р°:\t";
+	cout << "Введите число до которого будут генерироваться числа:\t";
 	cin >> r;
 
 	while (r < 1)
 	{
-		cout << "Р§РёСЃР»Рѕ РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ РЅР°С‚СѓСЂР°Р»СЊРЅС‹Рј С‡РёСЃР»РѕРј!" << endl;
-		cout << "Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ РґРѕ РєРѕС‚РѕСЂРѕРіРѕ Р±СѓРґСѓС‚ РіРµРЅРµСЂРёСЂРѕРІР°С‚СЊСЃСЏ С‡РёСЃР»Р°:\t";
+		cout << "Число должно быть натуральным числом!" << endl;
+		cout << "Введите число до которого будут генерироваться числа:\t";
 		cin >> r;
 	}
 
@@ -102,7 +102,7 @@ void Balance(int* arr, int size, int l, int r) {
 
 void printVE(vector<vector<int>> VECT)
 {
-	cout << endl <<  "РћС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅРЅС‹Р№ РјР°СЃСЃРёРІ:\t";
+	cout << endl << "Отсортированный массив:\t";
 	for (int i = 0; i < VECT.size(); i++)
 	{
 		for (int j = 0; j < VECT[i].size(); j++)
@@ -215,81 +215,178 @@ vector<vector<int>> Splitser(vector<int> HELP, int size1, int size2)
 	return hsort;
 }
 
-void Polyphasesort(int* arr, int *size)
+void PrintSeries(vector<vector<int>> series)
 {
-	vector<int> HELP;
-	for (int i = 0; i < *size; i++)
-	{
-		HELP.push_back(arr[i]);
-	}
-	FIB SIZE;
-	int size1 = SIZE.f1[0];
-	int size2 = SIZE.f2[0];
-	int size3 = SIZE.f3[0];
-	vector<vector<int>> file1(SIZE.f1[0]);
-	vector<vector<int>> file2(SIZE.f2[0]);
-	vector<vector<int>> file3(SIZE.f3[0]);
-	vector<vector<int>> series = Splitser(HELP, size1, size2);
-	int j1 = 0;
-	int j2 = 0;
-	for (int i = 0; i < series.size(); i++)
-	{
-		for (int j = 0; j < size1; j++)
-		{
-			file1[j] = series[i];
-			i++;
+	cout << series.size() << ":\t";
+	for (int i = 0; i < series.size(); i++) {
+		cout << "[";
+		for (int j = 0; j < series[i].size(); j++) {
+			cout << series[i][j] << " ";
 		}
-		for (int j = 0; j < size2; j++)
-		{
-			file2[j] = series[i];
-			i++;
+		cout << "]";
+	}
+	cout << endl;
+}
+
+void InsertionSort(vector<int>& newSerie)
+{
+	for (int i = 0; i < newSerie.size(); i++) {
+		for (int j = i; j > 0 && newSerie[j - 1] > newSerie[j]; j--) {
+			swap(newSerie[j - 1], newSerie[j]);
 		}
 	}
+}
 
-	for (int i = 1; i <= 6; i++)
+void Transition(vector<vector<int>>& min, vector<vector<int>>& max, vector<vector<int>>& null)
+{
+	for (int i = 0; i < min.size(); i++) {
+		vector<int> serie1 = max[i], serie2 = min[i];
+		vector<int> newSerie = serie1;
+		for (int j = 0; j < serie2.size(); j++) {
+			newSerie.push_back(serie2[j]);
+		}
+		InsertionSort(newSerie);
+		null.push_back(newSerie);
+	}
+	max.erase(max.begin(), max.begin() + min.size());
+	min.clear();
+}
+
+void Fib(int& size1, int& size2, vector<int>& arr)
+{
+	size1 = 0;
+	size2 = 1;
+	while (size1 + size2 < arr.size()) {
+		int tmp = size2;
+		size2 = size2 + size1;
+		size1 = tmp;
+	}
+}
+
+void Polyphasesort(int *arr1, int kol)
+{
+	vector<int> arr;
+	for (int i = 0; i < kol; i++)
 	{
+		arr.push_back(arr1[i]);
+	}
 
-		if (size1 == 0)
-		{
-
+	vector<vector<int>>List;
+	bool flag = true;
+	int i = 0;
+	while (i < arr.size()) {
+		vector<int> tmp;
+		tmp.push_back(arr[i]);
+		i++;
+		while (i < arr.size() && arr[i - 1] < arr[i]) {
+			tmp.push_back(arr[i]);
+			i++;
 		}
-		else if (size2 == 0)
+		List.push_back(tmp);
+	}
+	vector<vector<int>>F1, F2, F3;
+	//числа фибоначи
+	int size1, size2;
+	Fib(size1, size2, arr);
+	//инициализация f1, f2
+	for (int i = 0; i < size1; i++) {
+		F1.push_back(List[i]);
+	}
+	for (int i = 0; i < List.size() - size1; i++) {
+		F2.push_back(List[i + size1]);
+	}
+	// заполнение пустыми сериями 
+	for (int i = List.size(); i < size1 + size2; i++) {
+		vector<int> serie;
+		serie.push_back(-1);
+		F2.push_back(serie);
+	}
+	//вывод на консоль заполненного F1
+	cout << "F1 " << endl;
+	PrintSeries(F1);
+	//вывод на консоль заполненного F2
+	cout << endl << "F2 " << endl;
+	PrintSeries(F2);
+	cout << endl;
+	//цикл, в котором осуществляется обемен между файлами
+	while (!(F1.size() == 0 && F2.size() == 0 || F2.size() == 0 && F3.size() == 0 || F3.size() == 0 && F1.size() == 0)) {
+		if ((F1.size() >= F2.size() && F3.size() == 0)) 
 		{
-
+			Transition(F2, F1, F3);
 		}
-		else
+		if ((F2.size() >= F1.size() && F3.size() == 0)) 
 		{
-			if (size1 < size2)
-			{
-				for (int k = 0; k < size1; k++)
-				{
-					vector<int> HH(file1[k].size() + file2[k].size());
-					for (int g = 0; g < file1[k].size(); g++)
-					{
-						HH.push_back(file1[k][g]);
-					}
-					for (int g = 0; g < file2[k].size(); g++)
-					{
-						HH.push_back(file2[k][g]);
-					}
-					file3[k] = HH;
-					file1.erase(file1.begin());
-					file2.erase(file2.begin());
-				}
+			Transition(F1, F2, F3);
+		}
+		if ((F3.size() >= F2.size() && F1.size() == 0)) 
+		{
+			Transition(F2, F3, F1);
+		}
+		if ((F2.size() >= F3.size() && F1.size() == 0)) 
+		{
+			Transition(F3, F2, F1);
+		}
+		if ((F1.size() >= F3.size() && F2.size() == 0)) 
+		{
+			Transition(F3, F1, F2);
+		}
+		if ((F3.size() >= F1.size() && F2.size() == 0)) 
+		{
+			Transition(F1, F3, F2);
+		}
+		if (F1.size() != 0) 
+		{
+			cout << "\nF1" << endl;
+			PrintSeries(F1);
+		}
+		if (F2.size() != 0) 
+		{
+			cout << "\nF2" << endl;
+			PrintSeries(F2);
+		}
+		if (F3.size() != 0) 
+		{
+			cout << "\nF3" << endl;
+			PrintSeries(F3);
+		}
+	}
+	cout << "\nИзменённый массив:";
+	if (F1.size() != 0) 
+	{
+		for (int i = 0; i < F1[0].size(); i++) 
+		{
+			if (F1[0][i] != -1) {
+				cout << F1[0][i] << " ";
 			}
 		}
-
 	}
-	
+	if (F2.size() != 0) 
+	{
+		for (int i = 0; i < F2[0].size(); i++) 
+		{
+			if (F2[0][i] != -1)
+				cout << F2[0][i] << " ";
+		}
+	}
+	if (F3.size() != 0) 
+	{
+		for (int i = 0; i < F3[0].size(); i++) 
+		{
+			if (F3[0][i] != -1)
+				cout << F3[0][i] << " ";
+		}
+	}
+	cout << endl;
 }
+
 
 
 void calc()
 {
-	cout << "Р”РµР»РёРјРѕРµ:\t";
+	cout << "Делимое:\t";
 	int a;
 	cin >> a;
-	cout << "Р”РµР»РёС‚РµР»СЊ:\t";
+	cout << "Делитель:\t";
 	int res;
 	cin >> res;
 
@@ -300,12 +397,7 @@ void calc()
 }
 
 
-
-
-
-
-
-bool Choice(int* arr, int* size, bool f, int foo, int f1, vector<vector<int>> *VECT)
+bool Choice(int* arr, int* size, bool f, int foo, int f1, vector<vector<int>>* VECT)
 {
 	switch (foo)
 	{
@@ -313,7 +405,7 @@ bool Choice(int* arr, int* size, bool f, int foo, int f1, vector<vector<int>> *V
 	case 2:  PrintArr(arr, *size); break;
 	case 3:  Balance(arr, *size, 0, (*size - 1));  break;
 	case 4:  Naturalfusion(arr, size, VECT);  break;
-	case 5:  Polyphasesort(arr, size);  break;
+	case 5:  Polyphasesort(arr, *size);  break;
 	case 6: f = true; break;
 	default:
 		break;
@@ -337,16 +429,16 @@ int main()
 	while (f == false)
 	{
 		cout << endl;
-		cout << "Р’С‹Р±РµСЂРµС‚Рµ РґРµР№СЃС‚РІРёРµ:" << endl;
-		cout << "1: РРЅРёС†РёР°Р»РёР·РёСЂРѕРІР°С‚СЊ РјР°СЃСЃРёРІ" << endl;
-		cout << "2: РќР°РїРµС‡Р°С‚Р°С‚СЊ РјР°СЃСЃРёРІ РІ РєРѕРЅСЃРѕР»СЊ" << endl;
-		cout << "3: РЎРѕСЂС‚РёСЂРѕРІРєР° СЃР±Р°Р»Р°РЅСЃРёСЂРѕРІР°РЅРЅРѕРіРѕ СЃР»РёСЏРЅРёСЏ" << endl;
-		cout << "4: РЎРѕСЂС‚РёСЂРѕРІРєР° РјРµС‚РѕРґРѕРј РЅР°С‚СѓСЂР°Р»СЊРЅРѕРіРѕ СЃР»РёСЏРЅРёСЏ" << endl;
-		cout << "5: РЎРѕСЂС‚РёСЂРѕРІРєР° РјРЅРѕРіРѕС„Р°Р·РЅС‹Рј СЃР»РёСЏРЅРёРµРј" << endl;
-		cout << "6: Р’С‹Р№С‚Рё РёР· РїСЂРѕРіСЂР°РјРјС‹" << endl;
+		cout << "Выберете действие:" << endl;
+		cout << "1: Инициализировать массив" << endl;
+		cout << "2: Напечатать массив в консоль" << endl;
+		cout << "3: Сортировка сбалансированного слияния" << endl;
+		cout << "4: Сортировка методом натурального слияния" << endl;
+		cout << "5: Сортировка многофазным слиянием" << endl;
+		cout << "6: Выйти из программы" << endl;
 
 		cin >> foo;
 		f = Choice(arr, &size, f, foo, f1, &VECT);
 	}
-	
+
 }
