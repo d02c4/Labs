@@ -3,16 +3,19 @@
 #include <string> 
 #include <iostream> 
 using namespace std;
-class PERSON: public Object
+class PERSON : public Object
 {
 
-public: 
+public:
 	//конструктор без параметров 
 	PERSON();
 
 	//деструктор
 
-	virtual ~PERSON();
+	virtual ~PERSON()
+	{
+
+	}
 
 	void Show();// функция для просмотра атрибутов класса с помощью указателя
 
@@ -34,8 +37,14 @@ public:
 	}
 
 	//Сеттеры
-	void Set_name(string);
-	void Set_age(int);
+	void Set_name(string tmp)
+	{
+		name = tmp;
+	}
+	void Set_age(int tmp)
+	{
+		age = tmp;
+	}
 
 	//перегрузка операции присваивания 
 	PERSON& operator=(const PERSON&);

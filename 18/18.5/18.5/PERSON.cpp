@@ -1,51 +1,63 @@
-#pragma once 
-#include "Object.h"
-#include <string> 
-#include <iostream> 
+#include "Person.h"
+#include <string>
+#include <iostream>
 using namespace std;
-class PERSON: public Object
+
+
+PERSON::PERSON()
 {
+	name = "";
+	age = 0;
+}
 
-public: 
-	//конструктор без параметров 
-	PERSON();
+PERSON::PERSON(string name, int age)
+{
+	this->name = name;
+	this->age = age;
+}
 
-	//деструктор
+PERSON::PERSON(const PERSON& person)
+{
+	this->age = person.age;
+	this->name = person.name;
+}
 
-	virtual ~PERSON();
+PERSON& PERSON::operator=(const PERSON& copyObject)
+{
+	if (&copyObject == this) return *this;
+	age = copyObject.age;
+	name = copyObject.name;
+	return *this;
+}
 
-	void Show();// функция для просмотра атрибутов класса с помощью указателя
 
 
-	//констрктор с параметрами 
-	PERSON(string, int);
+void PERSON::Show()
+{
+	cout << "������ � ��������" << endl;
+	cout << "��� " << Get_name() << endl;
+	cout << "������� " << Get_age() << endl;
+}
 
-	//конструктор копирования 
-	PERSON(const PERSON&);
 
-	//Геттеры
-	string Get_name()
-	{
-		return name;
-	}
-	int Get_age()
-	{
-		return age;
-	}
+istream& operator>>(istream& in, PERSON& p)
+{
+	cout << "\nName:";
+	in >> p.name;
 
-	//Сеттеры
-	void Set_name(string);
-	void Set_age(int);
+	cout << "\nAge:";
+	in >> p.age;
+	return in;
+}
 
-	//перегрузка операции присваивания 
-	PERSON& operator=(const PERSON&);
+ostream& operator<<(ostream& out, const PERSON& p)
+{
+	out << "\nName : " << p.name;
+	out << "\nAge : " << p.age;
+	out << "\n";
+	return out;
+}
 
-	//глобальные операторы-функции ввода-вывода
-	friend istream& operator>>(istream& in, PERSON& c);
-	friend ostream& operator<<(ostream& out, const PERSON& c);
 
-	//атрибуты 
-protected:
-	string name;
-	int age;
-};
+
+

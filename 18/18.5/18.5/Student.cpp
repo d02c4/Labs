@@ -1,18 +1,18 @@
 #include "Student.h"
 
-//РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Р±РµР· РїР°СЂР°РјРµС‚СЂРѕРІ 
+//конструктор без параметров 
 STUDENT::STUDENT() :PERSON()
 {
 	mark = 2;
 }
 
-//РґРµСЃС‚СЂРєС‚РѕСЂ 
+//дестрктор 
 STUDENT::~STUDENT()
 {
 
 }
 
-//РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё
+//конструктор с параметрами
 STUDENT::STUDENT(string M, int C, int mark, string subject) :PERSON(M, C)
 {
 	this->name = M;
@@ -21,7 +21,7 @@ STUDENT::STUDENT(string M, int C, int mark, string subject) :PERSON(M, C)
 	this->subject = subject;
 }
 
-//РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ 
+//конструктор копирования 
 STUDENT::STUDENT(const STUDENT& other)
 {
 	this->name = other.name;
@@ -30,7 +30,7 @@ STUDENT::STUDENT(const STUDENT& other)
 	this->subject = other.subject;
 }
 
-//РјРѕРґРёС„РёРєР°С‚РѕСЂ
+//модификатор
 void STUDENT::Set_mark(int)
 {
 	this->mark = mark;
@@ -41,7 +41,7 @@ void STUDENT::Set_subject(string)
 	this->subject = subject;
 }
 
-//РѕРїРµСЂС†РёСЏ РїСЂРёСЃРІР°РёРІР°РЅРёСЏ
+//оперция присваивания
 STUDENT& STUDENT::operator=(const STUDENT& l)
 {
 	if (&l == this)return *this;
@@ -52,7 +52,7 @@ STUDENT& STUDENT::operator=(const STUDENT& l)
 	return *this;
 }
 
-//РѕРїРµСЂР°С†РёСЏ РІРІРѕРґР°
+//операция ввода
 istream& operator>>(istream& in, STUDENT& l)
 {
 	cout << "\nName:";
@@ -62,7 +62,7 @@ istream& operator>>(istream& in, STUDENT& l)
 	in >> l.age;
 	while (l.age < 14 || l.age > 40)
 	{
-		cout << "\nРќРµ СѓРІРµСЂРµРЅ С‡С‚Рѕ РІ С‚Р°РєРѕРј РІРѕР·СЂР°СЃС‚Рµ СѓС‡Р°С‚СЃСЏ РІ СѓРЅРёРІРµСЂСЃРёС‚РµС‚Рµ\n";
+		cout << "\nНе уверен что в таком возрасте учатся в университете\n";
 		cout << "\nAge:";
 		in >> l.age;
 	}
@@ -74,14 +74,14 @@ istream& operator>>(istream& in, STUDENT& l)
 	in >> l.mark;
 	while (l.mark < 2 || l.mark > 5)
 	{
-		cout << "\nР’РІРµРґРµРЅР° РЅРµРєРѕСЂСЂРµРєС‚РЅР°СЏ РѕС†РµРЅРєР°!\n";
+		cout << "\nВведена некорректная оценка!\n";
 		cout << "\nMark:";
 		in >> l.mark;
 	}
 	return in;
 }
 
-//РѕРїРµСЂР°С†РёСЏ РІС‹РІРѕРґР°
+//операция вывода
 ostream& operator<<(ostream& out, const STUDENT& l)
 {
 	out << "\nName : " << l.name;
@@ -96,10 +96,10 @@ void STUDENT::Check_Mark(const STUDENT& stud)
 {
 	switch (stud.mark)
 	{
-	case 2: cout << "\nРћС†РµРЅРєР°  СЃС‚СѓРґРµРЅС‚Р° " << stud.name << " РїРѕ РїСЂРµРґРјРµС‚Сѓ " << stud.subject << " РЅРµСѓРґРѕРІР»РµС‚РІРѕСЂРёС‚РµР»СЊРЅР°!\n"; break;
+	case 2: cout << "\nОценка  студента " << stud.name << " по предмету " << stud.subject << " неудовлетворительна!\n"; break;
 	case 3:
 	case 4:
-	case 5: cout << "\nРћС†РµРЅРєР°  СЃС‚СѓРґРµРЅС‚Р° " << stud.name << " РїРѕ РїСЂРµРґРјРµС‚Сѓ " << stud.subject << " СѓРґРѕРІР»РµС‚РІРѕСЂРёС‚РµР»СЊРЅР°!\n"; break;
+	case 5: cout << "\nОценка  студента " << stud.name << " по предмету " << stud.subject << " удовлетворительна!\n"; break;
 	default:
 		break;
 	}
